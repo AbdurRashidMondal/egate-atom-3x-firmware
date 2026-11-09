@@ -1,0 +1,1 @@
+3efa401f3fe13a5e6b7fddd54ea299f3  out/target/product/ljs5/aml_upgrade_package.img

@@ -1,0 +1,5 @@
+# Large firmware images are distributed outside git history
+*.img
+*.7z
+*.7z.*
+*.zip
