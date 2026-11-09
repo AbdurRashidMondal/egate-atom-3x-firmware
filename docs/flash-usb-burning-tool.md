@@ -1,5 +1,6 @@
 # 🔧 Flash with Amlogic USB Burning Tool
 
+> **Fallback method.** The primary method is [flash-usb-drive.md](flash-usb-drive.md).
 > Writes `aml_upgrade_package.img` from a Windows PC. **Erases all data.** These are the generic Amlogic steps; they have **not** been verified on this model.
 
 ## 📋 Prerequisites

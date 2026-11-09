@@ -18,13 +18,12 @@
 
 ```mermaid
 flowchart TD
-    A[Projector will not boot] --> B{Does a PC see it over USB?}
-    B -->|Yes: Amlogic burn device| C[docs/flash-usb-burning-tool.md]
-    B -->|No| D{Does it boot from SD card or USB drive?}
-    D -->|Yes| E[docs/flash-sd-card.md]
-    D -->|No| F[docs/troubleshooting.md]
-    C --> G[First boot, then factory reset]
-    E --> G
+    A[Projector will not boot or needs a restore] --> B[PRIMARY: docs/flash-usb-drive.md]
+    B -->|Updating... does not appear| C{PC sees it over USB?}
+    C -->|Yes| D[docs/flash-usb-burning-tool.md]
+    C -->|No| E[docs/troubleshooting.md]
+    B --> F[First boot, then factory reset if needed]
+    D --> F
 ```
 
 ## 📦 Repository layout
@@ -38,8 +37,8 @@ egate-atom-3x-firmware/
 │   └── SHA256SUMS.txt             SHA256 computed for this repo
 └── docs/
     ├── device-info.md             what the device reports about itself
-    ├── flash-usb-burning-tool.md  PC route
-    ├── flash-sd-card.md           SD-card route
+    ├── flash-usb-drive.md         PRIMARY method: pendrive + power button
+    ├── flash-usb-burning-tool.md  fallback: PC route
     └── troubleshooting.md         boot loop notes and what not to disable
 ```
 
@@ -65,6 +64,19 @@ Always verify the extracted image before flashing:
 Get-FileHash .ml_upgrade_package.img -Algorithm MD5     # expect 3efa401f3fe13a5e6b7fddd54ea299f3
 Get-FileHash .ml_upgrade_package.img -Algorithm SHA256  # expect 111cec74c27d38b46a0d80c500d15dd979f2eccccce583e3e5003b3df6dd854d
 ```
+
+## ⚡ Primary install method
+
+| # | Step |
+|---|---|
+| 1 | Copy **all** package files (`aml_upgrade_package.img`, `aml_sdc_burn.ini`, `md5.txt`) to the root of a FAT32 USB pendrive |
+| 2 | Plug the pendrive into the projector |
+| 3 | Turn the projector on |
+| 4 | When the picture appears, **immediately press and hold the Power button again** |
+| 5 | Keep holding until the screen shows **Updating...** |
+| 6 | Wait for the restart. Do not cut power |
+
+Full guide: [docs/flash-usb-drive.md](docs/flash-usb-drive.md)
 
 ## 🚨 Before you flash
 
