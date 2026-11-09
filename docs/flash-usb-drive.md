@@ -21,14 +21,15 @@ flowchart LR
 | Pendrive | USB pendrive, formatted **FAT32** (image is 2.08 GiB, under FAT32's 4 GiB file limit) |
 | Free space | At least 3 GB |
 | Files | **All** files from the firmware package (see below), in the **root** of the pendrive |
-| Image | Extracted from the release `.7z`, MD5 verified |
+| Download | `aml_upgrade_package.img.7z` from the [Release](https://github.com/AbdurRashidMondal/egate-atom-3x-firmware/releases/tag/v1.0.0), SHA256 verified |
+| Extract | `7z x aml_upgrade_package.img.7z` gives `aml_upgrade_package.img`, MD5 verified |
 | Power | Projector on mains power the whole time |
 
 ## 📦 Files to copy to the pendrive root
 
 | File | Required | Purpose |
 |---|---|---|
-| `aml_upgrade_package.img` | ✅ | The firmware |
+| `aml_upgrade_package.img` | ✅ | The firmware, **extracted from the `.7z`** (do not copy the `.7z` itself) |
 | `aml_sdc_burn.ini` | ✅ | Burn script (`erase_bootloader=1`, `erase_flash=1`, `reboot=1`) |
 | `md5.txt` | optional | Checksum shipped with the package |
 
@@ -38,7 +39,7 @@ flowchart LR
 
 | # | Action | Expected result |
 |---|---|---|
-| 1 | Copy all the package files into the pendrive root | Files visible at the top level |
+| 1 | Extract the `.7z`, then copy all the package files into the pendrive root | Files visible at the top level |
 | 2 | Plug the pendrive into the projector's USB port | Drive seated |
 | 3 | Turn on the projector | Boot picture appears |
 | 4 | **As soon as the picture appears, press and hold the Power button again** | Keep holding |

@@ -9,7 +9,7 @@
 |---|---|
 | PC | Windows with the Amlogic USB Burning Tool and its driver installed |
 | Cable | USB-A to USB-A data cable (a USB-C to A cable did not work in testing) |
-| Image | `aml_upgrade_package.img`, checksum verified |
+| Image | `aml_upgrade_package.img`, extracted from `aml_upgrade_package.img.7z` and checksum verified |
 | Power | Projector on mains power the whole time |
 
 ## 🔧 Steps

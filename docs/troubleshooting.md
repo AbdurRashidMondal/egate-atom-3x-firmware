@@ -40,7 +40,7 @@ Also changed: `jLauncher5ShowApps` (launcher app list) and the three animation s
 | Step | Action |
 |---|---|
 | 1 | Try recovery and a factory reset (clears disabled-app state, erases data) |
-| 2 | If that fails, reflash with `aml_upgrade_package.img` using the guides in this folder |
+| 2 | If that fails, reflash with the firmware from `aml_upgrade_package.img.7z` (extract it first) using the guides in this folder |
 | 3 | Do not repeat the debloat. Disable only apps that were proven safe |
 
 > ⚠️ TODO: record here which of the 14 packages actually caused the loop, if someone tests them one at a time on a recoverable unit.

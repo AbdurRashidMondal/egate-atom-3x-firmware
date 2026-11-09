@@ -1,1 +1,2 @@
+0b7d127a8621d241dcf18f77ffd9a99f4e711a3d3b89728a94e7bb808b496c62  aml_upgrade_package.img.7z
 111cec74c27d38b46a0d80c500d15dd979f2eccccce583e3e5003b3df6dd854d  aml_upgrade_package.img
