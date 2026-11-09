@@ -1,5 +1,5 @@
-# Large firmware images are distributed outside git history
+# Raw extracted firmware images are never committed (the .7z is stored with Git LFS)
 *.img
-*.7z
-*.7z.*
 *.zip
+# Split archive volumes are not used
+*.7z.0*

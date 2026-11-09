@@ -34,6 +34,7 @@ flowchart TD
 egate-atom-3x-firmware/
 ├── README.md                      this file
 ├── firmware/
+│   ├── aml_upgrade_package.img.7z firmware archive (stored with Git LFS)
 │   ├── aml_sdc_burn.ini           SD-card burn script from the package
 │   ├── md5.txt                    checksum shipped with the package
 │   └── SHA256SUMS.txt             SHA256 of the .7z and the extracted .img
@@ -44,18 +45,22 @@ egate-atom-3x-firmware/
     └── troubleshooting.md         boot loop notes and what not to disable
 ```
 
-> The firmware `aml_upgrade_package.img.7z` is **not stored in git** (898 MiB, over GitHub's 100 MB file limit). Download it from the [Release](#-getting-the-firmware).
+> The firmware `aml_upgrade_package.img.7z` (898 MiB) is stored with **Git LFS**, because GitHub blocks normal git files over 100 MB. A Release copy is kept as a backup. See [Getting the firmware](#-getting-the-firmware).
 
 ## 📥 Getting the firmware
 
-| Where | Status |
-|---|---|
-| Git history | ❌ Not stored: file is over GitHub's 100 MB limit |
-| **[GitHub Release v1.0.0](https://github.com/AbdurRashidMondal/egate-atom-3x-firmware/releases/tag/v1.0.0)** | ✅ `aml_upgrade_package.img.7z` (898 MiB) |
+| Where | How | Notes |
+|---|---|---|
+| **Git LFS** (in this repo) | `git lfs install` then `git clone https://github.com/AbdurRashidMondal/egate-atom-3x-firmware.git` | File appears at `firmware/aml_upgrade_package.img.7z` |
+| **[GitHub Release v1.0.0](https://github.com/AbdurRashidMondal/egate-atom-3x-firmware/releases/tag/v1.0.0)** (backup) | Download the asset in a browser | Same file, same SHA256. Use this if LFS bandwidth is exhausted |
+
+> ⚠️ **Do not use "Download ZIP"** on the repo page. It contains only a tiny LFS pointer text file, not the firmware. If `aml_upgrade_package.img.7z` is only a few hundred bytes, that is what you got.
+
+> ⚠️ GitHub's free LFS allowance is **1 GB of downloads per month**, shared by everyone who downloads. When it runs out, LFS downloads fail until the next month. The Release copy is not affected.
 
 | Step | Action | Expected result |
 |---|---|---|
-| 1 | Download `aml_upgrade_package.img.7z` from the release page | 941,518,670 bytes |
+| 1 | Get `aml_upgrade_package.img.7z` (clone with Git LFS, or download from the Release) | 941,518,670 bytes |
 | 2 | Check the archive (command below) | SHA256 matches the table above |
 | 3 | Extract with 7-Zip: `7z x aml_upgrade_package.img.7z` | `aml_upgrade_package.img`, 2,233,291,152 bytes |
 | 4 | Check the extracted image (command below) | MD5 and SHA256 match |
