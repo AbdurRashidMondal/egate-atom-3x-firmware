@@ -43,21 +43,27 @@ egate-atom-3x-firmware/
     └── troubleshooting.md         boot loop notes and what not to disable
 ```
 
-> The `.img` is **not stored in git** (see [Getting the image](#-getting-the-image)).
+> The `.img` is **not stored in git**. It is a [Release asset](#-getting-the-image).
 
 ## 📥 Getting the image
 
 | Where | Status |
 |---|---|
 | Git history | ❌ Not stored: file is over GitHub's 100 MB limit |
-| GitHub Release asset | ⚠️ TODO: image is about 2.08 GiB and the asset limit is 2 GiB, so it must be split or compressed |
-| External host | ⚠️ TODO: add link here after upload |
+| **[GitHub Release v1.0.0](https://github.com/AbdurRashidMondal/egate-atom-3x-firmware/releases/tag/v1.0.0)** | ✅ `aml_upgrade_package.img.7z` (898 MiB, 7-Zip compressed) |
 
-Always verify before flashing:
+| Step | Command |
+|---|---|
+| 1. Download | `aml_upgrade_package.img.7z` from the release page |
+| 2. Check the archive | SHA256 `0b7d127a8621d241dcf18f77ffd9a99f4e711a3d3b89728a94e7bb808b496c62` |
+| 3. Extract | `7z x aml_upgrade_package.img.7z` |
+| 4. Check the image | MD5 and SHA256 below |
+
+Always verify the extracted image before flashing:
 
 ```powershell
-Get-FileHash .\aml_upgrade_package.img -Algorithm MD5     # expect 3efa401f3fe13a5e6b7fddd54ea299f3
-Get-FileHash .\aml_upgrade_package.img -Algorithm SHA256  # expect 111cec74...854d
+Get-FileHash .ml_upgrade_package.img -Algorithm MD5     # expect 3efa401f3fe13a5e6b7fddd54ea299f3
+Get-FileHash .ml_upgrade_package.img -Algorithm SHA256  # expect 111cec74c27d38b46a0d80c500d15dd979f2eccccce583e3e5003b3df6dd854d
 ```
 
 ## 🚨 Before you flash
